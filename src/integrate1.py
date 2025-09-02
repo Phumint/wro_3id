@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import time
 import RPi.GPIO as GPIO
 
 # Import custom servo and motor control
@@ -11,53 +10,67 @@ import config
 # Set the GPIO mode
 GPIO.setmode(GPIO.BCM)
 
-def calculate_steering_angle(left_pixels, right_pixels, max_pixels):
+
+def calculate_steering_angle(left_pixels, right_pixels, max_pixels, prev_error):
     """
-    Calculates the steering angle based on the difference in white pixels.
-    Convention:
-        -30° = right turn
-        +30° = left turn
-    NOTE: Flipped left ↔ right mapping.
+    PD control for steering.
+    - P term: proportional to pixel imbalance.
+    - D term: change in imbalance across frames.
     """
+    # Error: pixel imbalance (positive = more right pixels)
     error = right_pixels - left_pixels
-    normalized_error = error / max_pixels
+    normalized_error = error / max_pixels  # range ~ [-1, 1]
 
-    # Flipped mapping (no minus sign)
-    steering_angle = normalized_error * config.SERVO_MAX_ANGLE
+    # Derivative (rate of change of error)
+    derivative = normalized_error - prev_error
 
-    clamped_angle = max(config.SERVO_MIN_ANGLE, min(config.SERVO_MAX_ANGLE, steering_angle))
-    return clamped_angle
+    # --- Tunable gains ---
+    Kp = 20.0   # proportional gain
+    Kd = 10.0   # derivative gain
+
+    # PD control law
+    steering_angle = (Kp * normalized_error) + (Kd * derivative)
+
+    # Clamp to servo limits
+    clamped_angle = max(config.SERVO_MIN_ANGLE,
+                        min(config.SERVO_MAX_ANGLE, steering_angle))
+
+    return clamped_angle, normalized_error
 
 
 def main_loop():
-    """The main loop for video processing, steering, and motor control."""
-
+    """Main loop: video, steering, motor control."""
     cap = cv2.VideoCapture(0)
     if not cap.isOpened():
         print("Error: Could not open video stream.")
         return
 
-    # HSV bounds for the wall
-    lower_bound = np.array([0, 54, 0])
-    upper_bound = np.array([37, 255, 170])
+    # HSV bounds for brownish-yellow wall
+    lower_bound = np.array([0, 50, 0])
+    upper_bound = np.array([33, 255, 149])
 
-    # Define ROIs
-    roi_left_x1, roi_left_y1 = 4, 325
-    roi_left_x2, roi_left_y2 = 87, 365
-    roi_right_x1, roi_right_y1 = 640 - roi_left_x2, 325
-    roi_right_x2, roi_right_y2 = 640 - roi_left_x1, 365
+    # Define ROIs (tuned for 640x480 frame)
+    # roi_left_x1, roi_left_y1 = 4, 325
+    # roi_left_x2, roi_left_y2 = 87, 365
+    # roi_right_x1, roi_right_y1 = 640 - roi_left_x2, 325
+    # roi_right_x2, roi_right_y2 = 640 - roi_left_x1, 365
+
+    roi_left_x1, roi_left_y1 = 1, 378
+    roi_left_x2, roi_left_y2 = 86, 441
+    roi_right_x1, roi_right_y1 = 640 - roi_left_x2, 378
+    roi_right_x2, roi_right_y2 = 640 - roi_left_x1, 441
 
     max_roi_pixels = (roi_left_x2 - roi_left_x1) * (roi_left_y2 - roi_left_y1)
 
     try:
-        # Setup servo + motor
+        # Setup hardware
         setup_servo()
         setup_motor()
 
-        # Start driving forward at 50% speed
-        set_motor_speed(50)
+        # Start forward motion at 50% speed
+        set_motor_speed(80)
 
-        frame_count = 0
+        prev_error = 0.0  # initialize error memory
 
         while True:
             ret, frame = cap.read()
@@ -87,22 +100,23 @@ def main_loop():
             white_pixels_left = cv2.countNonZero(roi_mask_left)
             white_pixels_right = cv2.countNonZero(roi_mask_right)
 
-            # --- Steering calculation ---
-            steering_angle = calculate_steering_angle(white_pixels_left, white_pixels_right, max_roi_pixels)
+            # --- Steering calculation (PD control) ---
+            steering_angle, prev_error = calculate_steering_angle(
+                white_pixels_left,
+                white_pixels_right,
+                max_roi_pixels,
+                prev_error
+            )
             set_steering_angle(steering_angle)
 
             # --- Debug output ---
-            print(f"Left: {white_pixels_left:4d}, Right: {white_pixels_right:4d}, Steering: {steering_angle:6.2f} deg")
+            print(f"L: {white_pixels_left:4d}, R: {white_pixels_right:4d}, "
+                  f"Steering: {steering_angle:6.2f} deg")
 
-            # Save one debug frame every ~3 seconds
-            frame_count += 1
-            if frame_count % 90 == 0:  # assuming ~30 FPS
-                filename = f"debug_frame_{frame_count}.jpg"
-                cv2.imwrite(filename, frame)
-                print(f"[INFO] Saved debug frame: {filename}")
-
+    except KeyboardInterrupt:
+        print("\n[INFO] Stopped by user (Ctrl+C).")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"[ERROR] An error occurred: {e}")
     finally:
         cap.release()
         cleanup_servo()
