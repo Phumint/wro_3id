@@ -58,40 +58,14 @@ The mobility of the autonomous robot is managed using an Ackerman drive system, 
 
 ---
 
-### Engineering Principles
-
-#### Speed
-
-The motor’s no-load speed of 280 RPM is reduced to 4.67 RPM at the wheels by the 1 : 60 gear ratio. Assuming a wheel diameter of 65 mm, the circumference is approximately \(\pi \cdot 65\text{ mm}\).
-
-\[
-4.67\;\mathrm{RPM} \cdot 204\;\mathrm{mm} = 952\;\mathrm{mm/min} \approx 0.057\;\mathrm{m/s}
-\]
-
-This slow speed (~5.7 cm/s) is ideal for precise navigation in controlled environments.
-
-#### Torque
-
-The 1 : 60 gear ratio amplifies the motor’s torque by 60× (minus 10–20% losses). Assuming a base torque of 1.5 Nm:
-
-\[
-1.5\;\mathrm{Nm} \cdot 60 \cdot 0.85 \approx 76.5\;\mathrm{Nm}
-\]
-
-This is sufficient for driving the robot across various surfaces.
-
-#### Power
-
-Estimated power consumption under load:
-
-- **Motor:** \(11.1\;\mathrm{V} \cdot 5\;\mathrm{A} = 55.5\;\mathrm{W}\)  
-- **Servo:** \(5\;\mathrm{V} \cdot 0.5\;\mathrm{A} = 2.5\;\mathrm{W}\)  
-
-With a 2200 mAh battery, the system supports approximately 30–45 minutes of operation with proper power management.
-
 ## Chassis Design and Selection
 
-The chassis is a custom 3D-printed structure, designed to support the Ackerman steering and differential drive system. It is lightweight yet rigid, likely using PLA or ABS material for durability.
+The chassis is a custom 3D-printed structure, designed to support the Ackerman steering and differential drive system. It is lightweight yet rigid, using PLA and most part and ABS on parts that require durability.
+
+![CAD1](src/images/cad1.jpg)
+![CAD2](src/images/cad2.jpg)
+![Front View](src/images/front_view.jpg)
+![Bottom View](src/images/bottom_view.jpg)
 
 ## Key Features
 
@@ -271,7 +245,7 @@ The BOM lists all components used in the power and sense management system, sour
 |-----------------------------------------------------------|------------------------------------------------------------------------------------------------------|------------|----------|----------------------------------------------------------------|------------|
 | 1. LM2596S 3A buck module                                 | ![LM2596S Buck Module](src/images/buck.jpg)                                              | $1.50      | 1 pcs    | Steps down 11.1 V to 5 V/6 V, 5 A capacity                      | $1.50      |
 | 2. JGB37-520 encoder gear motor (530 RPM)                 | ![JGB37-520 Motor](src/images/motor.jpg)                                                       | $8.00      | 1 pcs    | DC motor with incremental encoder                              | $8.00      |
-| 3. MG90S servo motor (90–180°)                            | ![MG90S Servo](src/images/mg90s-servo.jpg)                                                               | $1.50      | 1 pcs    | Actuator for mechanical tasks                                  | $4.50      |
+| 3. MG90S servo motor (90–180°)                            | ![MG90S Servo](src/images/servo.jpg)                                                               | $1.50      | 1 pcs    | Actuator for mechanical tasks                                  | $4.50      |
 | 4. Raspberry Pi 4                                         | ![Raspberry Pi 4](src/images/rppi4.jpg)                                                          | $75.00     | 1 pcs    | Central processing unit                                        | $75.00     |
 | 5. L298N motor driver module                              | ![L298N Driver](src/images/driver.jpg)                                                             | $1.50      | 1 pcs    | Controls DC motor, supports encoder input                      | $1.50      |
 | 6. 3S LiPo Battery 25C (11.1 V, 2200 mAh)                 | ![3S LiPo Battery](src/images/battery.jpg)                                                       | $23.00     | 1 pcs    | High-capacity LiPo battery                                     | $23.00     |
