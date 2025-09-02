@@ -135,12 +135,6 @@ The chassis is a custom 3D-printed structure, designed to support the Ackerman s
    - Power on the robot and test motor operation, steering, and camera functionality.  
    - Calibrate the Ackerman steering angles and motor PWM signals for smooth navigation.  
 
-## 3D CAD Files
-
-This is the link toward our CAD Model: CAD & IMAGE: GoogleDrive
-
----
-
 ## Engineering Principles Applied
 
 - Ackerman Steering Geometry: Ensures the inner and outer wheels follow different turning radii, reducing slippage and improving turn efficiency. The servo adjusts the steering angle dynamically based on Raspberry Pi commands.  
