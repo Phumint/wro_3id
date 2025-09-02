@@ -1,10 +1,10 @@
 # 3ID - Future Engineer 
 ## Team Members
-* Chea Vitou, @gmail.com
-* Saroeun Norakvitou, @gmail.com
+* Chea Vitou, 6023010001@camtech.edu.kh
+* Saroeun Norakvitou, 6023030003@camtech.edu.kh
 * Visal Phumint, Phumint1969@gmail.com 
 ## Coach
-* Sea Sokchamroeun, @gmail.com
+* Sea Sokchamroeun, 6023010027@camtech.edu.kh
 
 # Mobility Management Overview
 
@@ -269,11 +269,11 @@ The BOM lists all components used in the power and sense management system, sour
 
 | Itemized Expenses                                         | Picture                                                                                              | Unit Price | Quantity | Description                                                    | Subtotal   |
 |-----------------------------------------------------------|------------------------------------------------------------------------------------------------------|------------|----------|----------------------------------------------------------------|------------|
-| 1. LM2596S 3A buck module                                 | ![LM2596S Buck Module](src/images/lm2596s-buck-module.jpg)                                              | $1.50      | 1 pcs    | Steps down 11.1 V to 5 V/6 V, 5 A capacity                      | $1.50      |
-| 2. JGB37-520 encoder gear motor (530 RPM)                 | ![JGB37-520 Motor](src/images/jgb37-520-motor.jpg)                                                       | $8.00      | 1 pcs    | DC motor with incremental encoder                              | $8.00      |
+| 1. LM2596S 3A buck module                                 | ![LM2596S Buck Module](src/images/buck.jpg)                                              | $1.50      | 1 pcs    | Steps down 11.1 V to 5 V/6 V, 5 A capacity                      | $1.50      |
+| 2. JGB37-520 encoder gear motor (530 RPM)                 | ![JGB37-520 Motor](src/images/motor.jpg)                                                       | $8.00      | 1 pcs    | DC motor with incremental encoder                              | $8.00      |
 | 3. MG90S servo motor (90–180°)                            | ![MG90S Servo](src/images/mg90s-servo.jpg)                                                               | $1.50      | 1 pcs    | Actuator for mechanical tasks                                  | $4.50      |
-| 4. Raspberry Pi 4                                         | ![Raspberry Pi 4](src/images/raspberry-pi4.jpg)                                                          | $75.00     | 1 pcs    | Central processing unit                                        | $75.00     |
-| 5. L298N motor driver module                              | ![L298N Driver](src/images/l298n-driver.jpg)                                                             | $1.50      | 1 pcs    | Controls DC motor, supports encoder input                      | $1.50      |
-| 6. 3S LiPo Battery 25C (11.1 V, 2200 mAh)                 | ![3S LiPo Battery](src/images/3s-lipo-battery.jpg)                                                       | $23.00     | 1 pcs    | High-capacity LiPo battery                                     | $23.00     |
-| 7. 8 MP Autofocus USB 2.0 Camera                          | ![8MP USB Camera](src/images/8mp-usb-camera.jpg)                                                         | $40.00     | 1 pcs    | Vision sensor for navigation                                   | $40.00     |
+| 4. Raspberry Pi 4                                         | ![Raspberry Pi 4](src/images/rppi4.jpg)                                                          | $75.00     | 1 pcs    | Central processing unit                                        | $75.00     |
+| 5. L298N motor driver module                              | ![L298N Driver](src/images/driver.jpg)                                                             | $1.50      | 1 pcs    | Controls DC motor, supports encoder input                      | $1.50      |
+| 6. 3S LiPo Battery 25C (11.1 V, 2200 mAh)                 | ![3S LiPo Battery](src/images/battery.jpg)                                                       | $23.00     | 1 pcs    | High-capacity LiPo battery                                     | $23.00     |
+| 7. 8 MP Autofocus USB 2.0 Camera                          | ![8MP USB Camera](src/images/camera.jpg)                                                         | $40.00     | 1 pcs    | Vision sensor for navigation                                   | $40.00     |
 | **Total**                                                 |                                                                                                      |            |          |                                                                | **$153.50** |
