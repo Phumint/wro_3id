@@ -25,8 +25,8 @@ def calculate_steering_angle(left_pixels, right_pixels, max_pixels, prev_error):
     derivative = normalized_error - prev_error
 
     # --- Tunable gains ---
-    Kp = 20.0   # proportional gain
-    Kd = 10.0   # derivative gain
+    Kp = 50.0   # proportional gain
+    Kd = 15.0   # derivative gain
 
     # PD control law
     steering_angle = (Kp * normalized_error) + (Kd * derivative)
@@ -44,7 +44,8 @@ def main_loop():
     if not cap.isOpened():
         print("Error: Could not open video stream.")
         return
-
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
     # HSV bounds for brownish-yellow wall
     lower_bound = np.array([0, 50, 0])
     upper_bound = np.array([33, 255, 149])
@@ -68,7 +69,7 @@ def main_loop():
         setup_motor()
 
         # Start forward motion at 50% speed
-        set_motor_speed(80)
+        set_motor_speed(-100)
 
         prev_error = 0.0  # initialize error memory
 
