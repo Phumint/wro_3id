@@ -8,16 +8,19 @@ import config
 
 GPIO.setmode(GPIO.BCM)
 
+# --- Pin definitions ---
+BUTTON_PIN = 26  # Button between GPIO26 and GND
+
 # --- Tunable constants ---
-RED_TARGET = 10
+RED_TARGET = 8
 GREEN_TARGET = 640 - RED_TARGET
 KP_PILLAR = 0.5
 KD_PILLAR = 0.1
-KP_WALL = 40
+KP_WALL = 50
 KD_WALL = 15
-y_boundary = 370
+y_boundary = 380
 ignore_line = 250
-alpha = 0.3
+alpha = 0.1
 
 # --- HSV bounds ---
 lower_wall = np.array([0, 50, 0])
@@ -46,6 +49,14 @@ red_target = RED_TARGET
 green_target = GREEN_TARGET
 
 kernel = np.ones((5, 5), np.uint8)
+
+
+def wait_for_button():
+    """Block until button is pressed."""
+    print("[INFO] Waiting for button press to start...")
+    while GPIO.input(BUTTON_PIN) == GPIO.HIGH:  # HIGH = not pressed
+        pass
+    print("[INFO] Button pressed! Starting loop...")
 
 
 def calculate_steering_angle(left_pixels, right_pixels, max_pixels, prev_error):
@@ -79,7 +90,13 @@ def main_loop():
     try:
         setup_servo()
         setup_motor()
-        set_motor_speed(-100)  # Negative = forward due to wiring
+
+        # --- Setup button ---
+        GPIO.setup(BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+        # --- Wait for button press before starting motors ---
+        wait_for_button()
+        set_motor_speed(-100)  # Negative = forward
 
         prev_error_wall = 0.0
         prev_error_pillar = 0.0
@@ -140,9 +157,11 @@ def main_loop():
                 roi_right = mask_wall[roi_right_y1:roi_right_y2, roi_right_x1:roi_right_x2]
                 left_count = cv2.countNonZero(roi_left)
                 right_count = cv2.countNonZero(roi_right)
-                angle, prev_error_wall = calculate_steering_angle(left_count, right_count,
-                                                                   (roi_left_x2 - roi_left_x1) * (roi_left_y2 - roi_left_y1),
-                                                                   prev_error_wall)
+                angle, prev_error_wall = calculate_steering_angle(
+                    left_count, right_count,
+                    (roi_left_x2 - roi_left_x1) * (roi_left_y2 - roi_left_y1),
+                    prev_error_wall
+                )
                 set_steering_angle(angle)
 
             # --- Mid ROI encoder ---
