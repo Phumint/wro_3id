@@ -2,9 +2,14 @@
 
 # --- Motor Control Pins ---
 # Changed to 16, 20, 21 as requested
-MOTOR_IN1 = 20  # GPIO pin for motor driver input 1 (previously 17)
-MOTOR_IN2 = 21  # GPIO pin for motor driver input 2 (previously 27)
-MOTOR_ENA = 16  # GPIO pin for motor driver enable (PWM) (previously 22)
+# MOTOR_IN1 = 20  # GPIO pin for motor driver input 1 (previously 17)
+# MOTOR_IN2 = 21  # GPIO pin for motor driver input 2 (previously 27)
+# MOTOR_ENA = 16  # GPIO pin for motor driver enable (PWM) (previously 22)
+
+MOTOR_R_EN = 1
+MOTOR_L_EN = 7
+MOTOR_RPWM = 8 
+MOTOR_LPWM = 25
 
 # Encoder Pins (assuming these remain the same, if you're not changing them)
 ENCODER_A = 5   # GPIO pin for encoder channel A
@@ -19,7 +24,7 @@ WHEELBASE_CM = 20.0 # Length from front to rear axle in cm
 TRACK_WIDTH_CM = 15.0 # Distance between steering pivots in cm
 
 # Servo Calibration (you might need to adjust these after physical testing)
-SERVO_MIN_ANGLE = -25 # Minimum steering angle in degrees (e.g., full right)
+SERVO_MIN_ANGLE = -20 # Minimum steering angle in degrees (e.g., full right)
 SERVO_MAX_ANGLE = 20  # Maximum steering angle in degrees (e.g., full left)
 SERVO_CENTER_ANGLE = 0 # Add this line to define the center angle
 SERVO_CENTER_PULSE_WIDTH = 1.5 # Pulse width for center in ms (typically 1.5ms)
