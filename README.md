@@ -126,7 +126,7 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
   </tr>
 </table>
 
-## Power Management
+## Power Management and Distribution
 
 <table>
   <tr>
@@ -139,11 +139,13 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
 </table>
 
 The robot's power system uses a 3S LiPo battery (11.1 V, 2200 mAh) as the main power source. This single battery efficiently powers all components.
+
 + **Motor and Driver**: The JGB37-520 motor is powered directly by the 11.1 V battery. The BTS7960 motor driver can handle this voltage without issue, providing ample power to the drive system.
-+ **Electronics (Raspberry Pi & Servo)**: A buck converter steps down the 11.1 V battery voltage to power the sensitive electronics.
++ **Electronics (Raspberry Pi & Servo)**: The buck converter steps down the 11.1 V battery voltage to power the electronics with 5V.
 + **Raspberry Pi 4**: The buck converter is wired to a USB-C cable to power the Pi, which is a more stable method than using the 5V GPIO pin.
-+ **Servo**: The SG92R servo operates at 6V and is also powered by the buck converter, which can be adjusted to provide the correct voltage.
++ **Servo**: The SG92R servo operates at 5V and is also powered by the buck converter.
 + **Camera**: The USB camera is powered directly through the Raspberry Pi's USB port, drawing its power from the Pi's regulated 5V rail.
+
 This design ensures all components receive the correct voltage while minimizing the number of batteries required.
 
 ## Power Distribution
