@@ -11,7 +11,25 @@ Obstacle Round Video: **https://youtube.com/shorts/n_JYVOY8L6s**
 * Sea Sokchamroeun, 6023010027@camtech.edu.kh
 ---
 # Hardware
-Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/folders/1KM2BjuHMXqjhYWxJgh39tXH3upUK1R4r
+<table>
+  <tr>
+    <td align="center" style="vertical-align: top;">
+      <img src="src/images/robot_iso.jpg" width="200" alt="Ackermann Steering Mechanism"/>
+      <br>
+      Robot Iso View
+    </td>
+    <td align="center" style="vertical-align: top;">
+      <img src="src/images/robot_bottom.jpg" width="200" alt="Differential Gearbox"/>
+      <br>
+      Robot Bottom View
+    </td>
+    <td align="center" style="vertical-align: top;">
+      <img src="src/images/robot_top.jpg" width="200" alt="Differential Gearbox"/>
+      <br>
+      Robot Top View
+    </td>
+  </tr>
+</table>
 
 ## Mobility Management - Rear-wheel drive system with Ackermann steering
 
@@ -36,6 +54,12 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
     </td>
   </tr>
 </table>
+
+## Chassis Design and Selection
+
+The chassis is a custom 3D-printed structure, designed to support the Ackerman steering and differential drive system. It is lightweight yet rigid, using PLA and most part and ABS on parts that require durability.
+
+Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/folders/1KM2BjuHMXqjhYWxJgh39tXH3upUK1R4r
 
 ## Motor Selection and Implementation
 
@@ -83,14 +107,7 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
 
 ---
 
-## Chassis Design and Selection
 
-The chassis is a custom 3D-printed structure, designed to support the Ackerman steering and differential drive system. It is lightweight yet rigid, using PLA and most part and ABS on parts that require durability.
-
-![CAD1](src/images/cad1.jpg)
-![CAD2](src/images/cad2.jpg)
-![Front View](src/images/front_view.jpg)
-![Bottom View](src/images/bottom_view.jpg)
 
 ## Key Features
 
@@ -104,71 +121,6 @@ The chassis is a custom 3D-printed structure, designed to support the Ackerman s
 - Customizability: 3D printing allows tailoring the chassis to fit all components precisely, optimizing space and weight.  
 - Cost-Effectiveness: Utilizes lab resources (3D printer and filament) to avoid purchasing a commercial chassis.  
 - Stability: The design ensures a low center of gravity and balanced weight distribution, critical for Ackerman steering and differential drive.  
-
----
-
-## Component Mounting
-
-- **25GA370 Motor and Differential Drive:** Mounted at the rear of the chassis, with the motor connected to the differential gearbox. The two driven wheels are secured to the gearbox output shafts, aligned with Ackerman pivot points for steering compatibility.  
-- **L298N Motor Driver:** Mounted on the chassis using standoffs or brackets, with heat sinks if necessary to dissipate heat during high-current operation.  
-- **Raspberry Pi 4:** Secured in a central or elevated position using screws or a dedicated 3D-printed enclosure, ensuring access to GPIO pins and USB ports.  
-- **9 g Servo:** Mounted at the front, connected to the steering linkage for Ackerman geometry. Secured with screws or adhesive for precise alignment.  
-- **11.1 V LiPo Battery:** Centrally mounted with a Velcro strap or 3D-printed holder to ensure balance and easy removal for charging.  
-- **Camera:** Positioned at the front, mounted on a 3D-printed bracket for an unobstructed view, connected to the Raspberry Pi via USB.  
-- **Buck Converter:** Mounted near the battery, with clear access to input/output terminals for wiring.  
-- **Wiring:** Secured with cable ties or 3D-printed channels to prevent loose connections and ensure a clean layout.  
-
----
-
-## Assembly Instructions
-
-1. **Prepare the Chassis**  
-   - 3D print the chassis and mounting brackets using the provided CAD files (see below).  
-   - Verify all mounting points align with component dimensions.  
-
-2. **Install the Drive System**  
-   - Attach the 25GA370 motor to the differential gearbox.  
-   - Secure the gearbox and wheels to the chassis rear, aligning with Ackerman pivot points.  
-   - Ensure the wheels rotate freely and are securely fastened.  
-
-3. **Mount the Motor Driver**  
-   - Secure the L298N motor driver to the chassis using screws or brackets.  
-   - Connect the motor driver to the 25GA370 motor and encoder, following the driver’s pinout (e.g., IN1/IN2 for direction, ENA for PWM).  
-
-4. **Install the Raspberry Pi**  
-   - Mount the Raspberry Pi 4 on the chassis using screws or a 3D-printed enclosure.  
-   - Connect the motor driver to the Pi’s GPIO pins for PWM and encoder feedback.  
-
-5. **Mount the Servo**  
-   - Secure the 9 g servo at the front of the chassis, aligning it with the Ackerman steering linkage.  
-   - Connect the servo to the Raspberry Pi’s GPIO for PWM control and to the buck converter for power (5–6 V).  
-
-6. **Install the Battery and Buck Converter**  
-   - Mount the 11.1 V LiPo battery centrally using a Velcro strap or 3D-printed holder.  
-   - Secure the buck converter near the battery, connecting its input to the battery (11.1 V) and output to the Raspberry Pi (5 V) and servo (5–6 V).  
-   - Connect the battery directly to the L298N motor driver for motor power.  
-
-7. **Mount the Camera**  
-   - Attach the USB camera to a 3D-printed front bracket, ensuring an unobstructed view.  
-   - Connect the camera to the Raspberry Pi’s USB port.  
-
-8. **Secure Wiring**  
-   - Use cable ties or 3D-printed channels to organize wiring, preventing loose connections.  
-   - Verify all connections match the wiring diagram (see Power and Sense Management).  
-
-9. **Test the System**  
-   - Power on the robot and test motor operation, steering, and camera functionality.  
-   - Calibrate the Ackerman steering angles and motor PWM signals for smooth navigation.  
-
-## Engineering Principles Applied
-
-- Ackerman Steering Geometry: Ensures the inner and outer wheels follow different turning radii, reducing slippage and improving turn efficiency. The servo adjusts the steering angle dynamically based on Raspberry Pi commands.  
-- Torque Management: The 1:60 gear ratio provides high torque at low speeds, ideal for navigating obstacles or uneven terrain. The encoder feedback ensures consistent torque delivery.  
-- Power Efficiency: The buck converter minimizes power loss when stepping down voltage for the Raspberry Pi and servo, while the L298N driver efficiently handles motor current.  
-- Weight Distribution: Central battery placement and balanced component mounting lower the center of gravity, enhancing stability during high-torque maneuvers or sharp turns.  
-
----
-
 ## Power and Sense Management Overview
 
 The autonomous robot is designed to navigate various challenges using a Raspberry Pi 4B as the central processing unit, powered by a 3S LiPo battery (11.1 V, 2200 mAh). The system integrates a camera for vision-based navigation, a DC motor with an encoder for locomotion, a servo for actuation, and a motor driver for motor control. A buck converter steps down the battery voltage to meet the power requirements of various components. This section details the power distribution, sensor selection, their integration, and power consumption considerations, along with a professional wiring diagram and Bill of Materials (BOM).
