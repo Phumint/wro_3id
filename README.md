@@ -14,7 +14,6 @@ Obstacle Round Video: **https://youtube.com/shorts/n_JYVOY8L6s**
 ## Mobility Management - Rear-wheel drive system with Ackermann steering
 
 + Drivetrain: The robot uses a rear-wheel drive system powered by a single geared DC motor.
-
 + Differential: Power is transmitted through a central differential gearbox to the rear wheels, allowing them to spin at different speeds during turns.
 
 + Steering: An Ackermann steering system, actuated by a single hobby servo, controls the front wheels.
