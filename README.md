@@ -72,6 +72,31 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
 + Sensor: 8 MP Autofocus USB 2.0 Camera
   * The high-resolution camera with autofocus is ideal for computer vision tasks, such as navigation and object recognition. However, this camera FOV is too narrow, limiting robot's capabilities in obstacle maneuvering :(.
 
+<table>
+  <tr>
+    <td align="center" style="vertical-align: top;">
+      <img src="src/images/rppi4.jpg" width="200" alt="Ackermann Steering Mechanism"/>
+      <br>
+      Raspberry Pi 4
+    </td>
+    <td align="center" style="vertical-align: top;">
+      <img src="src/images/motor.jpg" width="200" alt="Differential Gearbox"/>
+      <br>
+      JGB37-520 encoder gear motor
+    </td>
+    <td align="center" style="vertical-align: top;">
+      <img src="src/images/new_servo.jpg" width="200" alt="Differential Gearbox"/>
+      <br>
+      SG92R Steering Servo Motor
+    </td>
+    <td align="center" style="vertical-align: top;">
+      <img src="src/images/camera.jpg" width="200" alt="Differential Gearbox"/>
+      <br>
+       8 MP Autofocus USB 2.0 Camera
+    </td>
+  </tr>
+</table>
+
 ## Power and Sense Management Overview
 
 The autonomous robot is designed to navigate various challenges using a Raspberry Pi 4B as the central processing unit, powered by a 3S LiPo battery (11.1 V, 2200 mAh). The system integrates a camera for vision-based navigation, a DC motor with an encoder for locomotion, a servo for actuation, and a motor driver for motor control. A buck converter steps down the battery voltage to meet the power requirements of various components. This section details the power distribution, sensor selection, their integration, and power consumption considerations, along with a professional wiring diagram and Bill of Materials (BOM).
