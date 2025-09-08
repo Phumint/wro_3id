@@ -20,10 +20,20 @@ Obstacle Round Video: **https://youtube.com/shorts/n_JYVOY8L6s**
 + Chassis: The chassis is a custom 3D-printed structure designed for optimal stability, weight distribution, and component mounting.
 + Documentation: The project documentation covers motor selection, implementation, chassis design, engineering principles (speed, torque, power), assembly instructions, and includes references to 3D CAD files.
 
-<div style="display: flex; justify-content: center;">
-  <img src="src/images/ackermann_turning.png" width="49%"/>
-  <img src="src/images/diff_gearbox.jpg" width="49%"/>
-</div>
+<table>
+  <tr>
+    <td align="center" style="vertical-align: top;">
+      <img src="src/images/ackermann_turning.png" width="200" alt="Ackermann Steering Mechanism"/>
+      <br>
+      Ackerman Steering Mechanism
+    </td>
+    <td align="center" style="vertical-align: top;">
+      <img src="src/images/diff_gearbox.jpg" width="200" alt="Differential Gearbox"/>
+      <br>
+      Differential Gearbox
+    </td>
+  </tr>
+</table>
 
 ## Motor Selection and Implementation
 
