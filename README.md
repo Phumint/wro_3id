@@ -33,12 +33,11 @@ Obstacle Round Video: **https://youtube.com/shorts/n_JYVOY8L6s**
 
 ## Mobility Management - Rear-wheel drive system with Ackermann steering
 
-+ Drivetrain: The robot uses a rear-wheel drive system powered by a single geared DC motor.
-+ Differential: Power is transmitted through a central differential gearbox to the rear wheels, allowing them to spin at different speeds during turns.
-+ Steering: An Ackermann steering system, actuated by a single hobby servo, controls the front wheels.
-+ Motion: This combination mimics car-like motion for smooth, precise turns and reduced tire slip.
-+ Chassis: The chassis is a custom 3D-printed structure designed for optimal stability, weight distribution, and component mounting.
-+ Documentation: The project documentation covers motor selection, implementation, chassis design, engineering principles (speed, torque, power), assembly instructions, and includes references to 3D CAD files.
++ **Drivetrain**: The robot uses a rear-wheel drive system powered by a single geared DC motor.
++ **Differential**: Power is transmitted through a central differential gearbox to the rear wheels, allowing them to spin at different speeds during turns.
++ **Steering**: An Ackermann steering system, actuated by a single hobby servo, controls the front wheels.
++ **Motion**: This combination mimics car-like motion for smooth, precise turns and reduced tire slip.
++ **Chassis**: The chassis is a custom 3D-printed structure designed for optimal stability, weight distribution, and component mounting.
 
 <table>
   <tr>
