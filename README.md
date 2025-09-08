@@ -70,7 +70,7 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
 + Steering: SG92R Steering Servo Motor
   * This small, affordable servo provides the precise angular control required for the Ackermann steering mechanism. Initially we used the infamous sg90s but the plastic gear broke so we switched to a more durable servo.
 + Sensor: 8 MP Autofocus USB 2.0 Camera
-  * The high-resolution camera with autofocus is ideal for computer vision tasks, such as navigation and object recognition. However, this camera FOV is too narrow, limiting robot's capabilities :(.
+  * The high-resolution camera with autofocus is ideal for computer vision tasks, such as navigation and object recognition. However, this camera FOV is too narrow, limiting robot's capabilities in obstacle maneuvering :(.
 
 ## Power and Sense Management Overview
 
