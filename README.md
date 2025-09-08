@@ -11,6 +11,8 @@ Obstacle Round Video: **https://youtube.com/shorts/n_JYVOY8L6s**
 * Sea Sokchamroeun, 6023010027@camtech.edu.kh
 ---
 # Hardware
+Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/folders/1KM2BjuHMXqjhYWxJgh39tXH3upUK1R4r
+
 ## Mobility Management - Rear-wheel drive system with Ackermann steering
 
 + Drivetrain: The robot uses a rear-wheel drive system powered by a single geared DC motor.
