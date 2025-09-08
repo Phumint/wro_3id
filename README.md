@@ -97,17 +97,7 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
   </tr>
 </table>
 
-## Electrical and Power System
-
-<table>
-  <tr>
-    <td align="center" style="vertical-align: top;">
-      <img src="src/images/wiring.jpg" width="200" alt="Ackermann Steering Mechanism"/>
-      <br>
-      Simple Wiring Diagram
-    </td>
-  </tr>
-</table>
+## Electrical Components
 
 + **Main Power Source**: 3S LiPo Battery
   * A 3S LiPo battery provides a nominal voltage of 11.1 V (3 cells in series) and a capacity of 2200 mAh. Its high C-rating of 25C allows it to safely deliver a high current (up to 55A), which is necessary for the motor's peak power demands without damaging the battery.
@@ -135,7 +125,18 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
     </td>
   </tr>
 </table>
+
 ## Power Management
+
+<table>
+  <tr>
+    <td align="center" style="vertical-align: top;">
+      <img src="src/images/wiring.jpg" width="200" alt="Ackermann Steering Mechanism"/>
+      <br>
+      Simple Wiring Diagram
+    </td>
+  </tr>
+</table>
 
 The robot's power system uses a 3S LiPo battery (11.1 V, 2200 mAh) as the main power source. This single battery efficiently powers all components.
 + **Motor and Driver**: The JGB37-520 motor is powered directly by the 11.1 V battery. The BTS7960 motor driver can handle this voltage without issue, providing ample power to the drive system.
