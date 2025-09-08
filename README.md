@@ -21,8 +21,8 @@ Obstacle Round Video: **https://youtube.com/shorts/n_JYVOY8L6s**
 + Documentation: The project documentation covers motor selection, implementation, chassis design, engineering principles (speed, torque, power), assembly instructions, and includes references to 3D CAD files.
 
 <div style="display: flex; justify-content: center;">
-  <img src="images/ackermann_turning.png" width="49%"/>
-  <img src="images/diff_gearbox.jpg" width="49%"/>
+  <img src="src/images/ackermann_turning.png" width="49%"/>
+  <img src="src/images/diff_gearbox.jpg" width="49%"/>
 </div>
 
 ## Motor Selection and Implementation
