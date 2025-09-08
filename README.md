@@ -10,9 +10,20 @@ Obstacle Round Video: **https://youtube.com/shorts/n_JYVOY8L6s**
 ## Coach
 * Sea Sokchamroeun, 6023010027@camtech.edu.kh
 
-# Mobility Management Overview
+# Hardware
+## Mobility Management - Rear-wheel drive system with Ackermann steering
 
-The mobility of the autonomous robot is managed using an Ackerman drive system, powered by a single 25GA370 gear motor with an integrated encoder and controlled by a 9g servo for steering. The system is designed to mimic car-like motion, ensuring smooth navigation and precise turning through a differential drive adapted to Ackerman geometry. The chassis is a custom 3D-printed structure, optimized for stability, weight distribution, and component mounting. This section discusses the motor selection, implementation, chassis design, component mounting, engineering principles (speed, torque, power), assembly instructions, and references 3D CAD files for printable parts.
++ Drivetrain: The robot uses a rear-wheel drive system powered by a single geared DC motor.
+
++ Differential: Power is transmitted through a central differential gearbox to the rear wheels, allowing them to spin at different speeds during turns.
+
++ Steering: An Ackermann steering system, actuated by a single hobby servo, controls the front wheels.
+
++ Motion: This combination mimics car-like motion for smooth, precise turns and reduced tire slip.
+
++ Chassis: The chassis is a custom 3D-printed structure designed for optimal stability, weight distribution, and component mounting.
+
++ Documentation: The project documentation covers motor selection, implementation, chassis design, engineering principles (speed, torque, power), assembly instructions, and includes references to 3D CAD files.
 
 ---
 
