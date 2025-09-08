@@ -57,7 +57,9 @@ Obstacle Round Video: **https://youtube.com/shorts/n_JYVOY8L6s**
 
 ## Chassis Design and Selection
 
-The chassis is a custom 3D-printed structure, designed to support the Ackerman steering and differential drive system. It is lightweight yet rigid, using PLA and most part and ABS on parts that require durability.
+The chassis is a custom 3D-printed structure, designed to support the Ackerman steering and differential drive system. It is lightweight yet rigid. 
+
+The chassis and parts are printed mostly with PLA  but parts that require high durability, like motor shaft, are printed with ABS.
 
 Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/folders/1KM2BjuHMXqjhYWxJgh39tXH3upUK1R4r
 
