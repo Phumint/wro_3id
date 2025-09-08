@@ -70,7 +70,7 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
 + **Steering**: SG92R Steering Servo Motor
   * This small, affordable servo provides the precise angular control required for the Ackermann steering mechanism. Initially we used the infamous sg90s but the plastic gear broke so we switched to a more durable servo.
 + **Sensor**: 8 MP Autofocus USB 2.0 Camera
-  * The high-resolution camera with autofocus is ideal for computer vision tasks, such as navigation and object recognition. However, this camera FOV is too narrow, limiting robot's capabilities in obstacle maneuvering :(.
+  * The high-resolution camera with autofocus is ideal for computer vision tasks, such as navigation and object recognition. However, **this camera FOV is too narrow**, limiting robot's capabilities in obstacle maneuvering :(.
 
 <table>
   <tr>
@@ -135,19 +135,15 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
     </td>
   </tr>
 </table>
----
-
 ## Power Management
 
-The power system is designed to efficiently distribute power from a single 3S LiPo battery (11.1 V, 2200 mAh) to all components while ensuring voltage compatibility and minimizing power loss. The key components and their power requirements are:
-
-- Raspberry Pi 4B: Requires 5 V at 3 A for stable operation. Powered via a buck converter to step down the 11.1 V battery voltage to 5 V.  
-- Servo: Operates at 6 V, typically drawing 0.5–1 A under load. Powered through the same buck converter with an adjusted output or a separate regulator to provide 6 V.  
-- DC Motor and Motor Driver: Requires 12 V, with the motor driver handling currents up to 5 A (depending on load). Directly powered from the 11.1 V battery, as it is within the operational range of the motor driver.  
-- Camera: Operates at 5 V, drawing 160–260 mA. Powered directly from the Raspberry Pi’s USB port, leveraging the Pi’s 5 V rail.  
-- Button: A simple push-button switch for power control or emergency stop, negligible power consumption.  
-
----
+The robot's power system uses a 3S LiPo battery (11.1 V, 2200 mAh) as the main power source. This single battery efficiently powers all components.
++ **Motor and Driver**: The JGB37-520 motor is powered directly by the 11.1 V battery. The BTS7960 motor driver can handle this voltage without issue, providing ample power to the drive system.
++ **Electronics (Raspberry Pi & Servo)**: A buck converter steps down the 11.1 V battery voltage to power the sensitive electronics.
++ **Raspberry Pi 4**: The buck converter is wired to a USB-C cable to power the Pi, which is a more stable method than using the 5V GPIO pin.
++ **Servo**: The SG92R servo operates at 6V and is also powered by the buck converter, which can be adjusted to provide the correct voltage.
++ **Camera**: The USB camera is powered directly through the Raspberry Pi's USB port, drawing its power from the Pi's regulated 5V rail.
+This design ensures all components receive the correct voltage while minimizing the number of batteries required.
 
 ## Power Distribution
 
