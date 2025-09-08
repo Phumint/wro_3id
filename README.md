@@ -55,74 +55,23 @@ Obstacle Round Video: **https://youtube.com/shorts/n_JYVOY8L6s**
   </tr>
 </table>
 
-## Chassis Design and Selection
+## Chassis Design and Selection - 3D Printing
 
 The chassis is a custom 3D-printed structure, designed to support the Ackerman steering and differential drive system. It is lightweight yet rigid. 
-
 The chassis and parts are printed mostly with PLA  but parts that require high durability, like motor shaft, are printed with ABS.
 
 Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/folders/1KM2BjuHMXqjhYWxJgh39tXH3upUK1R4r
 
-## Motor Selection and Implementation
+## Component Selection
++ Microprocessor: Raspberry Pi4
+  * This is a powerful, low-cost computer perfect for running the robot's control system and processing camera data for tasks like object detection.
++ Rear Drive: JGB37-520 encoder gear motor
+  * The motor's gearbox provides the torque needed to move the robot. Though not used for this project at the moment, the encoder allows for precise speed and position control.
++ Steering: SG92R Steering Servo Motor
+  * This small, affordable servo provides the precise angular control required for the Ackermann steering mechanism. Initially we used the infamous sg90s but the plastic gear broke so we switched to a more durable servo.
++ Sensor: 8 MP Autofocus USB 2.0 Camera
+  * The high-resolution camera with autofocus is ideal for computer vision tasks, such as navigation and object recognition. However, this camera FOV is too narrow, limiting robot's capabilities :(.
 
-### Motor Selection
-
-#### Motor Type:
-
-- **25GA370 gear motor** with integrated encoder
-
-#### Specifications:
-
-- **Voltage:** 12 V (compatible with an 11.1V 3S LiPo battery)  
-- **No-Load Speed:** 280 RPM  
-- **Gear Ratio:** 1:60 (motor rotates 60 times for one wheel rotation)  
-- **Torque:** High torque output (exact value depends on model, typically ~1–2 Nm for 25GA370 at 12V)
-- **Encoder:** Incremental encoder for speed and position feedback  
-
-#### Rationale for Selection:
-
-- **High Torque:** The 1:60 gear ratio provides sufficient torque for driving the robot, especially for overcoming friction and navigating inclines or uneven surfaces.
-- **Encoder Feedback:** Enables closed-loop control, allowing precise speed regulation and distance tracking via the Raspberry Pi.
-- **Availability:** Sourced from lab storage, reducing project costs.  
-- **Compatibility:** Matches the 11.1 V LiPo battery voltage and integrates seamlessly with the L298N motor driver.  
-
-#### Steering Servo:
-
-- **Type:** 9g micro servo  
-- **Specifications:** Operates at 5–6V, torque ~1.8 kg·cm, lightweight (9g) 
-- **Rationale for Selection:**
-  - **Precision:** Provides accurate control of steering angles for Ackerman geometry.  
-  - **Lightweight:** Minimizes weight impact on the chassis.  
-  - **Power Efficiency:** Low power consumption suits the buck converter’s 5V output.  
-  - **Availability:** Readily available in lab storage.  
-
----
-
-### Motor Implementation
-
-- **Drive System:** The 25GA370 motor powers a differential drive system, adapted to support Ackerman steering geometry. The motor drives two wheels through a differential gearbox (1:60 ratio), reducing the output speed to approximately 4.67 RPM (280 ÷ 60) at the wheels, increasing torque for effective propulsion.
-- **Control:** The L298N motor driver, connected to the Raspberry Pi 4, uses Pulse Width Modulation (PWM) to control motor speed and direction. The encoder provides feedback to the Raspberry Pi, enabling closed-loop control for precise speed and position adjustments.
-- **Steering:** The 9g servo adjusts the steering angle of the front wheels based on Ackerman principles, where each wheel follows a different turning radius to minimize slippage and ensure smooth turns. The servo is controlled via PWM signals from the Raspberry Pi’s GPIO pins.
-- **Power Supply:**  
-  - The motor and L298N driver are powered directly from the 11.1V LiPo battery, as the motor’s 12V requirement is within the battery’s nominal voltage range.
-  - The servo is powered by a buck converter stepping down the 11.1V battery to 5V (or 6V, depending on servo specifications), shared with the Raspberry Pi.
-
----
-
-
-
-## Key Features
-
-- Mounting Points: Includes dedicated slots or holes for the Raspberry Pi 4, L298N motor driver, 11.1 V LiPo battery, 9 g servo, and camera.  
-- Weight Distribution: The battery is centrally mounted to lower the center of gravity, enhancing stability during turns. The camera is positioned at the front for an unobstructed field of view.  
-- Ackerman Geometry Support: The chassis accommodates pivot points for the front wheels, ensuring proper alignment for Ackerman steering.  
-- Modularity: Designed for easy assembly and maintenance, with accessible mounting points for screws and brackets.  
-
-## Rationale for Selection
-
-- Customizability: 3D printing allows tailoring the chassis to fit all components precisely, optimizing space and weight.  
-- Cost-Effectiveness: Utilizes lab resources (3D printer and filament) to avoid purchasing a commercial chassis.  
-- Stability: The design ensures a low center of gravity and balanced weight distribution, critical for Ackerman steering and differential drive.  
 ## Power and Sense Management Overview
 
 The autonomous robot is designed to navigate various challenges using a Raspberry Pi 4B as the central processing unit, powered by a 3S LiPo battery (11.1 V, 2200 mAh). The system integrates a camera for vision-based navigation, a DC motor with an encoder for locomotion, a servo for actuation, and a motor driver for motor control. A buck converter steps down the battery voltage to meet the power requirements of various components. This section details the power distribution, sensor selection, their integration, and power consumption considerations, along with a professional wiring diagram and Bill of Materials (BOM).
@@ -148,17 +97,6 @@ A buck converter is used to step down the 11.1 V battery voltage to 5 V and 6 V 
 - The buck converter is selected for high efficiency (> 90 %) to minimize energy loss.  
 - A fuse (e.g., 10 A) is included at the battery output to protect against short circuits or overcurrent conditions.  
 - Proper wire gauges (e.g., AWG 18 for high-current paths to the motor driver, AWG 22 for low-current paths like the camera) are used to minimize voltage drops and heat generation.  
-
----
-
-## Power Consumption Estimate
-
-- Raspberry Pi 4B: 5 V × 3 A = 15 W (peak).  
-- Servo: 6 V × 1 A = 6 W (under load).  
-- DC Motor and Driver: 11.1 V × 5 A = 55.5 W (peak, assuming high load).  
-- Camera: 5 V × 0.26 A = 1.3 W (maximum).  
-- Total Peak Power: ~ 77.8 W.  
-- Battery Runtime: With a 2200 mAh (24.42 Wh) battery, the theoretical runtime at peak load is approximately 24.42 Wh ÷ 77.8 W ≈ 0.31 hours (18.8 minutes). In practice, the average power consumption is lower (e.g., 30–40 W), extending runtime to ~ 30–45 minutes.  
 
 ---
 
