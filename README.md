@@ -9,7 +9,7 @@ Obstacle Round Video: **https://youtube.com/shorts/n_JYVOY8L6s**
 * Visal Phumint, Phumint1969@gmail.com 
 ## Coach
 * Sea Sokchamroeun, 6023010027@camtech.edu.kh
-
+---
 # Hardware
 ## Mobility Management - Rear-wheel drive system with Ackermann steering
 
@@ -20,7 +20,10 @@ Obstacle Round Video: **https://youtube.com/shorts/n_JYVOY8L6s**
 + Chassis: The chassis is a custom 3D-printed structure designed for optimal stability, weight distribution, and component mounting.
 + Documentation: The project documentation covers motor selection, implementation, chassis design, engineering principles (speed, torque, power), assembly instructions, and includes references to 3D CAD files.
 
----
+<div style="display: flex; justify-content: center;">
+  <img src="images/ackermann_turning.png" width="49%"/>
+  <img src="images/diff_gearbox.jpg" width="49%"/>
+</div>
 
 ## Motor Selection and Implementation
 
