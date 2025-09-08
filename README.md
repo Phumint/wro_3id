@@ -157,6 +157,13 @@ A buck converter is used to step down the 11.1 V battery voltage to 5 V and 6 V 
 
 ---
 
+# Software
+
+## Open Round Challenge
+
+## Obstacle Challenge
+
+
 ## Sensor Selection and Usage
 
 The robot relies primarily on a camera for environmental sensing, with an attempted integration of a LiDAR module that was ultimately abandoned due to integration challenges.
@@ -180,28 +187,6 @@ The robot relies primarily on a camera for environmental sensing, with an attemp
   - Inaccurate sensor data due to hard-coded implementation, leading to unreliable performance.  
   - High development time and complexity outweighed benefits given the camera’s sufficiency for basic navigation.  
 - Outcome: The LiDAR was abandoned in favor of the camera, which provided adequate sensing for the robot’s requirements within the project’s constraints.  
-
-### DC Motor Encoder
-
-- Type: Incremental encoder attached to the DC motor.  
-- Purpose: Provides feedback on motor speed and position for precise control.  
-- Rationale for Selection:  
-  - Available in lab storage, reducing costs.  
-  - Enables closed-loop control, improving navigation accuracy (e.g., maintaining consistent speed or distance traveled).  
-- Usage: The encoder sends pulse signals to the Raspberry Pi (via GPIO or the motor driver’s interface), allowing the system to monitor wheel rotation and adjust motor commands for accurate movement.  
-
----
-
-## Wiring Diagram
-
-The wiring diagram illustrates the power and signal connections between components, ensuring clarity and professionalism. Key features include:
-
-- Color Coding: Red for positive power lines, black for ground, and other colors (e.g., blue, yellow) for signal lines.  
-- Connectors: JST or XT60 connectors for high-current paths (battery to motor driver), and pin headers for low-current signal connections.  
-- Labels: Each wire and component is labeled for easy identification.  
-- Safety Features: A fuse at the battery output and proper grounding to prevent electrical issues.  
-
----
 
 ## Bill of Materials (BOM)
 
