@@ -147,14 +147,6 @@ The robot's power system uses a 3S LiPo battery (11.1 V, 2200 mAh) as the main p
 
 This design ensures all components receive the correct voltage while minimizing the number of batteries required.
 
-## Power Distribution
-
-A buck converter is used to step down the 11.1 V battery voltage to 5 V and 6 V to meet the requirements of the Raspberry Pi and servo, respectively. The motor driver and DC motor are powered directly from the battery, as their voltage requirements align closely with the 11.1 V nominal voltage of the 3S LiPo battery. To ensure safety and efficiency:
-
-- The buck converter is selected for high efficiency (> 90 %) to minimize energy loss.  
-- A fuse (e.g., 10 A) is included at the battery output to protect against short circuits or overcurrent conditions.  
-- Proper wire gauges (e.g., AWG 18 for high-current paths to the motor driver, AWG 22 for low-current paths like the camera) are used to minimize voltage drops and heat generation.  
-
 ---
 
 # Software
