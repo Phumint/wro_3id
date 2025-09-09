@@ -14,17 +14,17 @@ Obstacle Round Video: **https://youtube.com/shorts/n_JYVOY8L6s**
 <table>
   <tr>
     <td align="center" style="vertical-align: top;">
-      <img src="src/images/robot_iso.jpg" width="200" alt="Ackermann Steering Mechanism"/>
+      <img src="src/images/robot_iso.jpg" width="200" alt="Robot Iso View"/>
       <br>
       Robot Iso View
     </td>
     <td align="center" style="vertical-align: top;">
-      <img src="src/images/robot_bottom.jpg" width="200" alt="Differential Gearbox"/>
+      <img src="src/images/robot_bottom.jpg" width="200" alt="Robot Bot View"/>
       <br>
       Robot Bottom View
     </td>
     <td align="center" style="vertical-align: top;">
-      <img src="src/images/robot_top.jpg" width="200" alt="Differential Gearbox"/>
+      <img src="src/images/robot_top.jpg" width="200" alt="Robot Top View"/>
       <br>
       Robot Top View
     </td>
@@ -69,27 +69,27 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
 + **Steering**: SG92R Steering Servo Motor
   * This small, affordable servo provides the precise angular control required for the Ackermann steering mechanism. Initially we used the infamous sg90s but the plastic gear broke so we switched to a more durable servo.
 + **Sensor**: 8 MP Autofocus USB 2.0 Camera
-  * The high-resolution camera with autofocus is ideal for computer vision tasks, such as navigation and object recognition. However, **this camera FOV is too narrow**, limiting robot's capabilities in obstacle maneuvering :(.
+  * The high-resolution camera with autofocus is ideal for computer vision tasks, such as navigation and object recognition. However, **this camera FOV is too narrow**, limiting robot's capabilities in obstacle maneuvering :cry:.
 
 <table>
   <tr>
     <td align="center" style="vertical-align: top;">
-      <img src="src/images/rppi4.jpg" width="200" alt="Ackermann Steering Mechanism"/>
+      <img src="src/images/rppi4.jpg" width="200" alt="rppi4"/>
       <br>
       Raspberry Pi 4
     </td>
     <td align="center" style="vertical-align: top;">
-      <img src="src/images/motor.jpg" width="200" alt="Differential Gearbox"/>
+      <img src="src/images/motor.jpg" width="200" alt="dc motor"/>
       <br>
       JGB37-520 encoder gear motor
     </td>
     <td align="center" style="vertical-align: top;">
-      <img src="src/images/new_servo.jpg" width="200" alt="Differential Gearbox"/>
+      <img src="src/images/new_servo.jpg" width="200" alt="servo"/>
       <br>
       SG92R Steering Servo Motor
     </td>
     <td align="center" style="vertical-align: top;">
-      <img src="src/images/camera.jpg" width="200" alt="Differential Gearbox"/>
+      <img src="src/images/camera.jpg" width="200" alt="camera"/>
       <br>
        8 MP Autofocus USB 2.0 Camera
     </td>
@@ -108,17 +108,17 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
 <table>
   <tr>
     <td align="center" style="vertical-align: top;">
-      <img src="src/images/battery.jpg" width="200" alt="Ackermann Steering Mechanism"/>
+      <img src="src/images/battery.jpg" width="200" alt="battery"/>
       <br>
       3S LiPo Battery
     </td>
     <td align="center" style="vertical-align: top;">
-      <img src="src/images/buck.jpg" width="200" alt="Differential Gearbox"/>
+      <img src="src/images/buck.jpg" width="200" alt="buck"/>
       <br>
       LM2596S Buck Converter
     </td>
     <td align="center" style="vertical-align: top;">
-      <img src="src/images/bts.jpg" width="200" alt="Differential Gearbox"/>
+      <img src="src/images/bts.jpg" width="200" alt="driver"/>
       <br>
       BTS7960 Motor Driver
     </td>
@@ -130,7 +130,7 @@ Google Drive Link to CAD Models and Parts STLS: https://drive.google.com/drive/f
 <table>
   <tr>
     <td align="center" style="vertical-align: top;">
-      <img src="src/images/wiring.jpg" width="200" alt="Ackermann Steering Mechanism"/>
+      <img src="src/images/wiring.jpg" width="200" alt="schematic, kinda"/>
       <br>
       Simple Wiring Diagram
     </td>
