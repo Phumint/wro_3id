@@ -157,10 +157,10 @@ This design ensures all components receive the correct voltage while minimizing 
 
 + Acquire a frame → blur → convert to HSV.
 + Attempt **pillar-following** first:
-1. Detect red/green masks → contours → choose the closest valid pillar based on its bottom y.
-2. If found, compute PD steering to align pillar to its target x (left for red, right for green).
+  1. Detect red/green masks → contours → choose the closest valid pillar based on its bottom y.
+  2. If found, compute PD steering to align pillar to its target x (left for red, right for green).
 + If no pillar, fall back to **wall-following**:
-* Detect drivable boundary (“wall”) in left/right bottom ROIs, compare max contour areas to keep centered.
+  * Detect drivable boundary (“wall”) in left/right bottom ROIs, compare max contour areas to keep centered.
 + **Progress tracking** via the mid ROI:
  Watch for sequence Orange → Blue, then count once both have been seen and subsequently cleared.
 + **Stop condition**: when the encoder count reaches a threshold, cut motor and exit.
